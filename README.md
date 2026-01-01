@@ -14,3 +14,17 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+ABOUT PROJECT
+
+The entire UI is data-driven—the nodes and their relationships are generated from a JSON file. If you update the JSON, the map updates automatically. I used React 19 with Vite for a fast development setup and Tailwind CSS for the styling.
+
+Key Features
+
+Dynamic Rendering: Everything flows from mindmapData.json.
+
+Interactivity: You can click nodes to expand/collapse branches and hover over them to see a quick summary tooltip.
+
+Live Editing: I added a sidebar that lets you edit node details or add new sub-nodes on the fly.
+
+Export: There is a download button to save the current state of your map as a JSON file.

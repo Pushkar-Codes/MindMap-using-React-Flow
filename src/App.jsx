@@ -14,6 +14,7 @@ import MindMapNode from "./components/MindMapNode";
 
 const nodeTypes = { mindmap: MindMapNode };
 
+// structure for the json data
 const parseData = (
   node,
   parentId = null,
@@ -72,6 +73,7 @@ export default function App() {
     return node && !node.hidden ? node : null;
   }, [nodes, selectedId]);
 
+  // dynamic sidebar data based on selected node
   const onNodesChange = useCallback(
     (chs) => setNodes((nds) => applyNodeChanges(chs, nds)),
     []
@@ -99,6 +101,7 @@ export default function App() {
     );
   };
 
+  // add nodes
   const addNode = (newFields) => {
     if (!selectedId) return;
     const parent = nodes.find((n) => n.id === selectedId);
@@ -128,6 +131,8 @@ export default function App() {
     ]);
   };
 
+  // toggle nodes:
+  // expand
   const toggleNode = (nodeId) => {
     setNodes((nds) =>
       nds.map((n) =>
@@ -139,12 +144,32 @@ export default function App() {
     );
   };
 
+  // collapse
   const handleCollapseAll = () => {
     setNodes((n) =>
       n.map((x) => (x.data.parentId ? { ...x, hidden: true } : x))
     );
     setEdges((e) => e.map((x) => ({ ...x, hidden: true })));
     setSelectedId(null);
+  };
+
+  // download funcitonality
+  const exportToJson = () => {
+    const dataToExport = { nodes, edges };
+
+    const blob = new Blob([JSON.stringify(dataToExport, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "mindmap_graph.json";
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -156,6 +181,7 @@ export default function App() {
         }}
         collapseAll={handleCollapseAll}
         fitView={() => rfInstance?.fitView()}
+        onExport={exportToJson}
       />
       <div className="flex flex-1 overflow-hidden">
         <div className="flex-1">
