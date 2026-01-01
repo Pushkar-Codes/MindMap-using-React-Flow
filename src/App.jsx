@@ -83,6 +83,7 @@ export default function App() {
     []
   );
 
+  // update node
   const updateNode = (id, fields) => {
     setNodes((nds) =>
       nds.map((n) =>

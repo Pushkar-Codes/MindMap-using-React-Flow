@@ -18,7 +18,7 @@ export default memo(({ data }) => {
 
       <div className="font-bold text-sm text-center">{data.label}</div>
 
-      {/* Custom Hover Effect / Quick Info */}
+      {/* hover effect */}
       {isHovered && data.summary && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-50 pointer-events-none">
           <p className="font-semibold border-b border-gray-600 mb-1">
