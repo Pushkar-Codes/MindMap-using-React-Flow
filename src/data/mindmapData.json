@@ -1,0 +1,38 @@
+{
+  "id": "root",
+  "title": "Parent Node",
+  "summary": "This is a parent node",
+  "description": "A quick brown fox jumps over the lazy dog.",
+  "children": [
+    {
+      "id": "childfirst",
+      "title": "First Child",
+      "summary": "This is a first child",
+      "description": "A quick brown fox jumps over the lazy dog.",
+      "children": []
+    },
+
+    {
+      "id": "childsecond",
+      "title": "Second Child",
+      "summary": "This is a second child",
+      "description": "A quick brown fox jumps over the lazy dog.",
+      "children": [
+        {
+          "id": "childsubsecond",
+          "title": "Second Sub Child",
+          "summary": "This is a second sub child",
+          "description": "A quick brown fox jumps over the lazy dog.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "childthird",
+      "title": "Third Child",
+      "summary": "This is a third child",
+      "description": "A quick brown fox jumps over the lazy dog.",
+      "children": []
+    }
+  ]
+}
